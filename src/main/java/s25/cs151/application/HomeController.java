@@ -43,4 +43,45 @@ public class HomeController {
         }
     }
 
+    @FXML
+    private void goToDataBase() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TableView.fxml"));
+            Parent root = loader.load();
+            TableViewController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void goToCourseSelection() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("courses.fxml"));
+            Parent root = loader.load();
+            CoursesController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToTimeSlot() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
+            Parent root = loader.load();
+            TimeSlotsController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

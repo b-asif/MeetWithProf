@@ -34,7 +34,7 @@
                     </graphic>
 
                 </Button>
-                <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Notifications" textAlignment="LEFT">
+                <Button onAction="#goToCourseSelection" text="Select Courses" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
@@ -52,15 +52,17 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Meeting History" textAlignment="LEFT">
+                <Button text="Time Slot" onAction="#goToTimeSlot" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
-                                <Image url="@icons/work_history.png" />
+                                <Image url="@icons/clock.png" />
                             </image>
                         </ImageView>
                     </graphic>
+
                 </Button>
+
                 <Button text="Schedule" onAction="#goToTableView" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
                     <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
@@ -71,6 +73,7 @@
                     </graphic>
 
                 </Button>
+
 
             </VBox>
 
