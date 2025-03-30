@@ -13,9 +13,6 @@ import java.io.IOException;
 public class OfficeHourController {
     @FXML private ComboBox<String> semesterDropDown;
     @FXML private GridPane formContainer;
-    @FXML private TextField courseCode;
-    @FXML private TextField courseName;
-    @FXML private TextField sectionNumber;
     @FXML private TextField year;
     @FXML private TextField startTime;
     @FXML private TextField endTime;
@@ -72,7 +69,7 @@ public class OfficeHourController {
         }
     }
     @FXML
-    private void goToHomePage() {
+    private void goToDashboard() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
             Parent root = loader.load();

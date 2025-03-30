@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.TableViewController">
+   <BorderPane>
+       <left>
+           <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="200" spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5;">
+               <Button  text="Dashboard"  onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" textAlignment="CENTER">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/home_png.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+
+               <Button onAction="#goToOfficeHoursPage" text="Set Availability" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/event_available.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+
+               </Button>
+               <Button onAction="#goToCourseSelection" text="Select Courses" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/schedule_send.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+               <Button text="Manage Appointments" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/calendar.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+               <Button text="Time Slot" onAction="#goToTimeSlot" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/clock.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+
+               </Button>
+
+               <Button text="Schedule" onAction="#goToTableView" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                   <graphic>
+                       <ImageView fitHeight="20" fitWidth="20">
+                           <image>
+                               <Image url="@icons/work_history.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+
+               </Button>
+
+
+           </VBox>
+
+       </left>
+       <center>
+           <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1079.0" prefWidth="1979.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                   <Tab text="Semester Timing">
+                       <TableView fx:id="semesterInfoTableView">
+                           <columns>
+                               <TableColumn fx:id="semester" text="Semester"/>
+                               <TableColumn fx:id="year" text="Year"/>
+                               <TableColumn fx:id="days" text="Days"/>
+                           </columns>
+                       </TableView>
+
+                   </Tab>
+                   <Tab text="Course Info">
+                       <TableView fx:id="courseInfoTableView">
+                           <columns>
+                               <TableColumn fx:id="courseCode" text="Course Code"/>
+                               <TableColumn fx:id="courseName" text="Course Name"/>
+                               <TableColumn fx:id="sectionNum" text="Section Num"/>
+                           </columns>
+                       </TableView>
+                   </Tab>
+
+                   <Tab text="Time Slots">
+                       <TableView fx:id="timeSlotTableView">
+                           <columns>
+                               <TableColumn fx:id="startTime" text="Start Time"/>
+                               <TableColumn fx:id="endTime" text="End Time"/>
+                           </columns>
+                       </TableView>
+                   </Tab>
+
+               </tabs>
+           </TabPane>
+       </center>
+   </BorderPane>
+</AnchorPane>
