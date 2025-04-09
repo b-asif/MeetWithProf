@@ -16,6 +16,7 @@ public class Main extends Application {
         OfficeHourDataBase.createTable();
         CourseInfoDB.createTable();
         TimeSlotDB.createTable();
+        DataEntryDB.createTable();
 
         FXMLLoader load = new FXMLLoader(getClass().getResource("/s25/cs151/application/HomePage.fxml"));
         Scene home = new Scene(load.load(), 1920,1080);

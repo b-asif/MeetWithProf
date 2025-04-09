@@ -84,4 +84,18 @@ public class HomeController {
         }
     }
 
+    @FXML
+    private void goToDataEntry() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            Parent root = loader.load();
+            DataEntryController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

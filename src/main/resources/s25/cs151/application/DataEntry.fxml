@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8f9294;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.DataEntryController">
+    <!--Creating the sidebar panel -->
+    <left>
+        <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="200" spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5;">
+            <Button onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Dashboard" textAlignment="CENTER">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@icons/home_png.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Set Availability" textAlignment="LEFT">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@icons/event_available.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+
+            </Button>
+            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Notifications" textAlignment="LEFT">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@icons/schedule_send.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@icons/calendar.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button maxWidth="-Infinity" onAction="#goToTableView" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Schedule" textAlignment="LEFT">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@icons/work_history.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+
+            </Button>
+
+        </VBox>
+
+    </left>
+    <!--Header -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 20px">
+            <Label style="-fx-font-size: 18px; -fx-text-fill: white; -fx-line-spacing: 2px;" text="Meet Your Professor" />
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane style="-fx-background-color: #F7F7F7; -fx-padding: 20px;">
+            <AnchorPane style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, gray, 10, 0.5, 0, 0); -fx-background-radius: 10px; -fx-padding: 20px; -fx-pref-width: 400px; -fx-pref-height: 300px;">
+                <Button fx:id="submit" onAction="#handlesubmit" style="-fx-background-color: #1c2b42; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10px; -fx-padding: 10px 15px;" text="Submit" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+                <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="50">
+                    <children>
+                        <TextField fx:id="studentName" maxWidth="426.0" prefHeight="1.0" prefWidth="426.0" promptText="Student Name" />
+                    </children>
+                    <ComboBox fx:id="startTime" layoutX="173.0" layoutY="235.0" maxWidth="426.0" prefHeight="1.0" prefWidth="426.0" promptText="Select Time" style="-fx-alignment: center;" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="220.0" />
+                    <ComboBox fx:id="courses" layoutX="173.0" layoutY="235.0" maxWidth="426.0" prefHeight="1.0" prefWidth="426.0" promptText="Select Course" style="-fx-alignment: center;" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="220.0" />
+                    <DatePicker fx:id="datePicker" promptText="Select Date" maxWidth="426.0" prefHeight="1.0" prefWidth="426.0" />
+               <HBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="50">
+                  <children>
+                     <TextField fx:id="reason" prefHeight="247.0" prefWidth="260.0" promptText="Reason (optional)" />
+                     <TextField fx:id="comments" prefHeight="247.0" prefWidth="260.0" promptText="Comments (optional)" />
+                  </children>
+               </HBox>
+                </VBox>
+            </AnchorPane>
+        </StackPane>
+    </center>
+
+
+</BorderPane>

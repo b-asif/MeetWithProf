@@ -111,6 +111,19 @@
                        </TableView>
                    </Tab>
 
+                   <Tab text="Data Entry">
+                       <TableView fx:id="dataEntryTableView">
+                           <columns>
+                               <TableColumn fx:id="studentName" text="Student Name"/>
+                               <TableColumn fx:id="time" text="Scheduled Time"/>
+                               <TableColumn fx:id="course" text="Course"/>
+                               <TableColumn fx:id="date" text="Date"/>
+                               <TableColumn fx:id="reason" text="Reason"/>
+                               <TableColumn fx:id="comments" text="Comments"/>
+                           </columns>
+                       </TableView>
+                   </Tab>
+
                </tabs>
            </TabPane>
        </center>

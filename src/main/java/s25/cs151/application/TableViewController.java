@@ -25,6 +25,7 @@ public class TableViewController  {
     @FXML private TableView<SemesterInfo> semesterInfoTableView;
     @FXML private TableView<CourseInfo> courseInfoTableView;
     @FXML private TableView<TimeSlot> timeSlotTableView;
+    @FXML private TableView<DataEntry> dataEntryTableView;
     //columns for semester table
     @FXML
     private TableColumn<SemesterInfo, String> semester;
@@ -32,6 +33,7 @@ public class TableViewController  {
     private TableColumn<SemesterInfo, String> year;
     @FXML
     private TableColumn<SemesterInfo, String> days;
+
 
     //columns for course information
     @FXML private TableColumn<CourseInfo, String> courseCode;
@@ -41,9 +43,19 @@ public class TableViewController  {
     @FXML TableColumn<TimeSlot, String> startTime;
     @FXML TableColumn<TimeSlot, String> endTime;
 
+    //Data Entry columns
+    @FXML TableColumn<DataEntry, String> studentName;
+    @FXML TableColumn<DataEntry, String> time;
+    @FXML TableColumn<DataEntry, String> course;
+    @FXML TableColumn<DataEntry, String> date;
+    @FXML TableColumn<DataEntry, String> reason;
+    @FXML TableColumn<DataEntry, String> comments;
+
+
     ObservableList<SemesterInfo> semesterOfficeHour = FXCollections.observableArrayList();
     ObservableList<CourseInfo> courseInfo = FXCollections.observableArrayList();
     ObservableList<TimeSlot> timeSlot = FXCollections.observableArrayList();
+    ObservableList<DataEntry> dataEntries = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -69,11 +81,22 @@ public class TableViewController  {
         endTime.setCellValueFactory((new PropertyValueFactory<>("endTime")));
         timeSlotTableView.setItems(timeSlot);
 
+        //data entry table
+        studentName.setCellValueFactory((new PropertyValueFactory<>("studentName")));
+        time.setCellValueFactory((new PropertyValueFactory<>("time")));
+        course.setCellValueFactory((new PropertyValueFactory<>("course")));
+        date.setCellValueFactory((new PropertyValueFactory<>("date")));
+        reason.setCellValueFactory((new PropertyValueFactory<>("reason")));
+        comments.setCellValueFactory((new PropertyValueFactory<>("comments")));
+
+        dataEntryTableView.setItems(dataEntries);
+
     }
     private void loadTable() {
         loadSemesterData();
         loadCourseData();
         loadTimeSlot();
+        loadDataEntries();
     }
     private void loadSemesterData() {
         semesterOfficeHour.clear();
@@ -140,6 +163,28 @@ private void loadTimeSlot() {
         e.printStackTrace();
     }
 }
+
+    private void loadDataEntries() {
+        dataEntries.clear();
+        String query = "SELECT * FROM data_entry";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:data_entry.db");
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(query)) {
+            while(result.next()) {
+                dataEntries.add(new DataEntry(
+                        result.getString("studentName"),
+                        result.getString("time"),
+                        result.getString("course"),
+                        result.getString("date"),
+                        result.getString("reason"),
+                        result.getString("comments")
+                ));
+            }
+            dataEntryTableView.refresh();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void goToDataBase() {
         try {

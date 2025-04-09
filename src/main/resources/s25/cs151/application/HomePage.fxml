@@ -32,6 +32,16 @@
                             </image>
                         </ImageView>
                     </graphic>
+                </Button>
+
+                <Button text="Data Entry" onAction="#goToDataEntry" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@icons/checklist.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
 
                 </Button>
                 <Button onAction="#goToCourseSelection" text="Select Courses" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
