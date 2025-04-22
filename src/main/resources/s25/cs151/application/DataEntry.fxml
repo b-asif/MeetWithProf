@@ -13,59 +13,95 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8f9294;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.DataEntryController">
     <!--Creating the sidebar panel -->
     <left>
-        <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="200" spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5;">
-            <Button onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Dashboard" textAlignment="CENTER">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/home_png.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+        <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 3);" BorderPane.alignment="TOP_CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                <children>
+                    <Button onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-alignment: center-left; -fx-padding: 10 15; -fx-background-radius: 10;" text="Dashboard" textAlignment="CENTER">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/home_png.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
 
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Set Availability" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/event_available.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
+                    <Button maxWidth="-Infinity" onAction="#goToOfficeHoursPage" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-padding: 10 15; -fx-background-radius: 10;" text="Set Availability" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/event_available.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
 
-            </Button>
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Notifications" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/schedule_send.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/calendar.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+                    <Button maxWidth="-Infinity" onAction="#goToDataEntry" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Office Hour Schedule" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/checklist.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
 
-            <Button maxWidth="-Infinity" onAction="#goToTableView" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Schedule" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/work_history.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
+                    </Button>
+                    <Button maxWidth="-Infinity" onAction="#goToCourseSelection" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Select Courses" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/schedule_send.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!--
+                    <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
+                                    <graphic>
+                                        <ImageView fitHeight="20" fitWidth="20">
+                                            <image>
+                                                <Image url="@icons/calendar.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                -->
+                    <Button maxWidth="-Infinity" onAction="#goToTimeSlot" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Time Slot" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/clock.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#goToTableView" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Schedule" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/work_history.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets bottom="20.0" top="20.0" />
+                </VBox.margin>
+            </VBox>
 
-            </Button>
+
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+            <opaqueInsets>
+                <Insets top="10.0" />
+            </opaqueInsets>
+
 
         </VBox>
 

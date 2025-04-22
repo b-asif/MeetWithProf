@@ -108,11 +108,63 @@ public class TimeSlotsController {
 
 
     @FXML
-    private void goToHomePage() {
+    private void goToDashboard() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
             Parent root = loader.load();
             HomeController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToOfficeHoursPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("office_hour.fxml"));
+            Parent root = loader.load();
+            OfficeHourController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToDataEntry() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            Parent root = loader.load();
+            DataEntryController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToCourseSelection() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("courses.fxml"));
+            Parent root = loader.load();
+            CoursesController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToTimeSlot() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
+            Parent root = loader.load();
+            TimeSlotsController control = loader.getController();
             control.setStage(stage);
             stage.getScene().setRoot(root);
             stage.show();

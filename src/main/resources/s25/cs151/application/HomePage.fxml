@@ -1,91 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Text?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.HomeController">
         <left>
-            <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="200" spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5;">
-                <Button style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Dashboard" textAlignment="CENTER">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/home_png.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-
-                <Button onAction="#goToOfficeHoursPage" text="Set Availability" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/event_available.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-
-                <Button text="Office Hour Schedule" onAction="#goToDataEntry" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/checklist.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-
-                </Button>
-                <Button onAction="#goToCourseSelection" text="Select Courses" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/schedule_send.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/calendar.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button text="Time Slot" onAction="#goToTimeSlot" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/clock.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-
-                </Button>
-
-                <Button text="Schedule" onAction="#goToTableView" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;"  textAlignment="LEFT">
-                    <graphic>
-                        <ImageView fitHeight="20" fitWidth="20">
-                            <image>
-                                <Image url="@icons/work_history.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-
-                </Button>
+            <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 3);" BorderPane.alignment="TOP_CENTER">
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <children>
+                      <Button style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-alignment: center-left; -fx-padding: 10 15; -fx-background-radius: 10;" text="Dashboard" textAlignment="CENTER">
+                          <graphic>
+                              <ImageView fitHeight="20" fitWidth="20">
+                                  <image>
+                                      <Image url="@icons/home_png.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </Button>
+      
+                            <Button maxWidth="-Infinity" onAction="#goToOfficeHoursPage" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-padding: 10 15; -fx-background-radius: 10;" text="Set Availability" textAlignment="LEFT">
+                          <graphic>
+                              <ImageView fitHeight="20" fitWidth="20">
+                                  <image>
+                                      <Image url="@icons/event_available.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </Button>
+      
+                            <Button maxWidth="-Infinity" onAction="#goToDataEntry" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Office Hour Schedule" textAlignment="LEFT">
+                          <graphic>
+                              <ImageView fitHeight="20" fitWidth="20">
+                                  <image>
+                                      <Image url="@icons/checklist.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+      
+                            </Button>
+                      <Button maxWidth="-Infinity" onAction="#goToCourseSelection" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Select Courses" textAlignment="LEFT">
+                          <graphic>
+                              <ImageView fitHeight="20" fitWidth="20">
+                                  <image>
+                                      <Image url="@icons/schedule_send.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </Button>
+                      <!--
+                      <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
+                                      <graphic>
+                                          <ImageView fitHeight="20" fitWidth="20">
+                                              <image>
+                                                  <Image url="@icons/calendar.png" />
+                                              </image>
+                                          </ImageView>
+                                      </graphic>
+                                  </Button>
+                                  -->
+                      <Button maxWidth="-Infinity" onAction="#goToTimeSlot" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Time Slot" textAlignment="LEFT">
+                          <graphic>
+                              <ImageView fitHeight="20" fitWidth="20">
+                                  <image>
+                                      <Image url="@icons/clock.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </Button>
+            </children>
+            <VBox.margin>
+               <Insets bottom="20.0" top="20.0" />
+            </VBox.margin>
+         </VBox>
 
 
-            </VBox>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+
+
+                  </VBox>
 
         </left>
 
@@ -94,15 +97,32 @@
                 <Label style="-fx-font-size: 18px; -fx-text-fill: white; -fx-line-spacing: 2px;" text="Meet Your Professor" />
             </HBox>
         </top>
-
-    <center>
-
-            <VBox maxWidth="900" maxHeight="300" spacing="10" alignment="CENTER" style="-fx-background-color: #1c2b42; -fx-background-radius: 20; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);">
-                <HBox spacing="10" alignment="CENTER">
-                    <Text style="-fx-font-size: 20px; -fx-fill: white;">Welcome Back, Professor</Text>
-                </HBox>
-            </VBox>
-
-    </center>
+   <center>
+      <VBox alignment="TOP_CENTER" prefWidth="900.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="800" prefHeight="160.0" prefWidth="900.0" spacing="40.0" style="-fx-background-color: #1c2b42; -fx-background-radius: 20; -fx-padding: 20; -fx-spacing: 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4);" styleClass="dashboard-card">
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="392.0" spacing="10.0">
+                     <children>
+                        <Label maxWidth="608.0" prefHeight="28.0" prefWidth="410.0" style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;" styleClass="dashboard-title" text="Welcome Back, Professor" />
+                        <Label prefHeight="14.0" prefWidth="375.0" style="-fx-text-fill: #E2E8F0; -fx-font-size: 14px;" styleClass="dashboard-subtitle" text="Next Office Hour: Monday, Apr 21, 3:00 PM – 5:00 PM" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="120.0" prefWidth="177.0" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#goToOfficeHoursPage" prefHeight="17.0" prefWidth="168.0" style="-fx-background-color: #3B82F6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20; -fx-cursor: hand;" styleClass="dashboard-button" text="Set Availability" VBox.vgrow="NEVER" />
+                        <Button mnemonicParsing="false" onAction="#goToTableView" prefHeight="38.0" prefWidth="168.0" style="-fx-background-color: #3B82F6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 12; -fx-cursor: hand;" styleClass="dashboard-button secondary" text="View Appointments" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="40.0" top="40.0" />
+         </padding>
+      </VBox>
+   </center>
     </BorderPane>
-

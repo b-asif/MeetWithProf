@@ -3,18 +3,20 @@ package s25.cs151.application;
 import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class TableViewController  {
@@ -50,6 +52,9 @@ public class TableViewController  {
     @FXML TableColumn<DataEntry, String> date;
     @FXML TableColumn<DataEntry, String> reason;
     @FXML TableColumn<DataEntry, String> comments;
+    //search bar
+    @FXML TextField searchField;
+    @FXML Button searchButton;
 
 
     ObservableList<SemesterInfo> semesterOfficeHour = FXCollections.observableArrayList();
@@ -57,11 +62,16 @@ public class TableViewController  {
     ObservableList<TimeSlot> timeSlot = FXCollections.observableArrayList();
     ObservableList<DataEntry> dataEntries = FXCollections.observableArrayList();
 
+    //filtering for search
+    FilteredList<DataEntry> filteredData;
+
     @FXML
     public void initialize() {
         setUpTable();
         loadTable();
+        setUpSearch();
     }
+
 
     private void setUpTable() {
         semester.setCellValueFactory(new PropertyValueFactory<>("semester"));
@@ -186,18 +196,71 @@ private void loadTimeSlot() {
         }
     }
     @FXML
-    private void goToDataBase() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("database.fxml"));
-            Parent root = loader.load();
-            TableViewController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
+    private void setUpSearch() {
+        //when user searches for student
+        filteredData = new FilteredList<>(dataEntries, p->true);
+        SortedList<DataEntry> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(dataEntryTableView.comparatorProperty());
+        dataEntryTableView.setItems(sortedData);
+
+        searchField.setOnAction(e-> {
+            handleSearch();
+        });
+    }
+
+    @FXML
+    private void handleSearch() {
+        String input = searchField.getText().toLowerCase();
+
+        filteredData.setPredicate(e -> {
+            if(input == null || input.isEmpty()) return true;
+
+            return e.getStudentName().toLowerCase().contains(input);
+        });
+    }
+
+    @FXML
+    private void handleDelete() {
+        DataEntry selectedEntry = dataEntryTableView.getSelectionModel().getSelectedItem();
+        if(selectedEntry == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No entry selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an office hour entry to remove");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert confirmDeletion = new Alert(Alert.AlertType.WARNING);
+        confirmDeletion.setTitle("Delete Confirmation");
+        confirmDeletion.setHeaderText(null);
+        confirmDeletion.setContentText("Are you sure you would like to delete this office hour for " + selectedEntry.getStudentName() + "?");
+        confirmDeletion.showAndWait().ifPresent(response -> {
+            if(response == ButtonType.OK) {
+                deleteDataEntry(selectedEntry);
+                dataEntries.remove(selectedEntry);
+            }
+        });
+    }
+
+    @FXML
+    private void deleteDataEntry(DataEntry entry) {
+        String query = "DELETE FROM data_entry WHERE studentName = ? AND date = ? AND time = ?";
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:data_entry.db");
+            PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            stmt.setString(1, entry.getStudentName());
+            stmt.setString(2, entry.getDate());
+            stmt.setString(3, entry.getTime());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
+
 
     @FXML
     private void goToCourseSelection() {
@@ -259,6 +322,19 @@ private void loadTimeSlot() {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
             Parent root = loader.load();
             TimeSlotsController control = loader.getController();
+            control.setStage(stage);
+            stage.getScene().setRoot(root);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goToDataEntry() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            Parent root = loader.load();
+            DataEntryController control = loader.getController();
             control.setStage(stage);
             stage.getScene().setRoot(root);
             stage.show();

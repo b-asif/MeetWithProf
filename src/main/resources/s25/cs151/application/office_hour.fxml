@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -13,60 +14,96 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8f9294;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.OfficeHourController">
     <!--Creating the sidebar panel -->
     <left>
-        <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="200" spacing="10" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5;">
-            <Button  text="Dashboard" onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" textAlignment="CENTER">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/home_png.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+        <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 3);" BorderPane.alignment="TOP_CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                <children>
+                    <Button onAction="#goToDashboard" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-alignment: center-left; -fx-padding: 10 15; -fx-background-radius: 10;" text="Dashboard" textAlignment="CENTER">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/home_png.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
 
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Set Availability" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/event_available.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
+                    <Button maxWidth="-Infinity" onAction="#goToOfficeHoursPage" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15; -fx-padding: 10 15; -fx-background-radius: 10;" text="Set Availability" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/event_available.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
 
-            </Button>
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Notifications" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/schedule_send.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/calendar.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+                    <Button maxWidth="-Infinity" onAction="#goToDataEntry" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Office Hour Schedule" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/checklist.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
 
-            <Button onAction="#goToTableView" maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Schedule" textAlignment="LEFT">
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <image>
-                            <Image url="@icons/work_history.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
+                    </Button>
+                    <Button maxWidth="-Infinity" onAction="#goToCourseSelection" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Select Courses" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/schedule_send.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!--
+                    <Button maxWidth="-Infinity" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Manage Appointments" textAlignment="LEFT">
+                                    <graphic>
+                                        <ImageView fitHeight="20" fitWidth="20">
+                                            <image>
+                                                <Image url="@icons/calendar.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                -->
+                    <Button maxWidth="-Infinity" onAction="#goToTimeSlot" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Time Slot" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/clock.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button maxWidth="-Infinity" onAction="#goToTableView" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white; -fx-font-size: 15;" text="Schedule" textAlignment="LEFT">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@icons/work_history.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets bottom="20.0" top="20.0" />
+                </VBox.margin>
+            </VBox>
 
-            </Button>
+
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+            <opaqueInsets>
+                <Insets top="10.0" />
+            </opaqueInsets>
+
 
         </VBox>
 
@@ -80,28 +117,52 @@
 
     <center>
         <StackPane style="-fx-background-color: #F7F7F7; -fx-padding: 20px;">
-            <AnchorPane style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, gray, 10, 0.5, 0, 0); -fx-background-radius: 10px; -fx-padding: 20px; -fx-pref-width: 400px; -fx-pref-height: 300px;">
-                <Button text="Submit" onAction="#submitOfficeHourSchedule" style="-fx-background-color: #1c2b42; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10px; -fx-padding: 10px 15px;"  AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                <Label alignment="CENTER" layoutX="137.0" layoutY="142.0" prefHeight="57.0" prefWidth="143.0" style="-fx-pref-width: 100px; -fx-padding: 20 0 20 0;" text="Select Semester" AnchorPane.leftAnchor="137.0" AnchorPane.topAnchor="142.0">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font>
-                </Label>
-                <ComboBox fx:id="semesterDropDown" layoutX="336.0" layoutY="177.0" prefHeight="25.0" prefWidth="282.0" promptText="Spring" style="-fx-pref-width: 370; -fx-font-family: 'Sans-serif';-fx-font-size: 14px; -fx-prompt-text-fill: #d3d3d3; -fx-background-radius: 15px; " AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="82.0" />
-
-                <!--Selection of Days-->
-                <Label alignment="CENTER" layoutX="173.0" layoutY="235.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Select Days" />
-
-                <HBox alignment="CENTER" layoutX="319.0" layoutY="227.0" prefHeight="18.0" prefWidth="295.0" spacing="20" style="-fx-padding: 0 0 0 20; fx-pref-width: 900px;  -fx-max-width: Infinity;" HBox.hgrow="ALWAYS">
-                    <CheckBox fx:id="mCheckBox" text="M" />
-                    <CheckBox fx:id="tCheckBox" text="T" />
-                    <CheckBox fx:id="wCheckBox" text="W" />
-                    <CheckBox fx:id="thCheckBox" style="-fx-min-width: 40px;" text="TH" />
-                    <CheckBox fx:id="fCheckBox" text="F" />
-                </HBox>
-
-                <!--Enter Year-->
-                <TextField fx:id="year" alignment="CENTER" layoutX="254.0" layoutY="290.0" maxWidth="426.0" prefHeight="1.0" prefWidth="426.0" promptText="Enter year" style=" -fx-background-color: #1c2b42; -fx-text-fill: #d3d3d3;  -fx-background-radius: 15px; -fx-padding: 5px 5px; -fx-max-width: 200; -fx-pref-width: 50; -fx-font-size: 14px; " AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="220.0" />
+            <AnchorPane nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, gray, 10, 0.5, 0, 0); -fx-background-radius: 10px; -fx-padding: 20px; -fx-pref-width: 400px; -fx-pref-height: 300px;">
+            <VBox alignment="CENTER" layoutX="33.0" layoutY="117.0" prefHeight="307.0" prefWidth="578.0" spacing="50.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="567.0" spacing="30.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Select Semester" wrappingWidth="114.35177612304688">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                            <ComboBox fx:id="semesterDropDown" prefHeight="25.0" prefWidth="390.0" promptText="Spring" style="-fx-pref-width: 370; -fx-font-family: 'Sans-serif'; -fx-font-size: 14px; -fx-prompt-text-fill: #d3d3d3; -fx-background-radius: 3px; -fx-background-color: white; -fx-border-color: black;" />
+                     </children>
+                  </HBox>
+      
+                                              <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="630.0" spacing="50.0">
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Select Days" wrappingWidth="91.815185546875">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Text>
+                          <CheckBox fx:id="mCheckBox" text="M" />
+                          <CheckBox fx:id="tCheckBox" text="T" />
+                          <CheckBox fx:id="wCheckBox" text="W" />
+                          <CheckBox fx:id="thCheckBox" style="-fx-min-width: 40px;" text="TH" />
+                          <CheckBox fx:id="fCheckBox" text="F" />
+                      </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="224.0" spacing="30.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Enter Year" wrappingWidth="114.64617919921875">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+            
+                                                 <!--Enter Year-->
+                            <TextField fx:id="year" alignment="CENTER" maxWidth="343.0" prefHeight="10.0" prefWidth="390.0" promptText="2024" style="-fx-background-color: #1c2b42; -fx-text-fill: #d3d3d3; -fx-background-radius: 3px; -fx-padding: 5px 5px; -fx-font-size: 14px; -fx-pref-width: 370px;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+                <Button onAction="#submitOfficeHourSchedule" prefHeight="39.0" prefWidth="156.0" style="-fx-background-color: #1c2b42; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10px; -fx-padding: 10px 15px;" text="Submit" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="40.0" />
+            <Text layoutX="32.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #1c2b42;" text="Office Hour Schedule" wrappingWidth="323.0327453613281">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
 
             </AnchorPane>
         </StackPane>
