@@ -139,7 +139,7 @@ public class TableViewController  {
     private void loadCourseData() {
         courseInfo.clear();
         String query = "SELECT * FROM course_info " + "ORDER BY courseCode DESC;";
-        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:course_info.db");
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:db/course_info.db");
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(query)) {
                 while(result.next()) {
@@ -159,7 +159,7 @@ public class TableViewController  {
 private void loadTimeSlot() {
     timeSlot.clear();
     String query = "SELECT * FROM time_slot ORDER BY startTime ASC;";
-    try(Connection conn = DriverManager.getConnection("jdbc:sqlite:time_slot.db");
+    try(Connection conn = DriverManager.getConnection("jdbc:sqlite:db/time_slot.db");
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery(query)) {
         while(result.next()) {
@@ -177,7 +177,7 @@ private void loadTimeSlot() {
     private void loadDataEntries() {
         dataEntries.clear();
         String query = "SELECT * FROM data_entry ORDER BY date ASC, time ASC";
-        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:data_entry.db");
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:db/data_entry.db");
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(query)) {
             while(result.next()) {

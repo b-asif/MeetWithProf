@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DataEntryDB {
-    private static final String url = "jdbc:sqlite:data_entry.db";
+    private static final String url = "jdbc:sqlite:db/data_entry.db";
     public static void createTable() {
         String sql = "CREATE TABLE IF NOT EXISTS data_entry (" +
                 "studentName TEXT NOT NULL, " +

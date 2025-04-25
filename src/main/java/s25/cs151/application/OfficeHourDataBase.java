@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OfficeHourDataBase {
-    private static final String url = "jdbc:sqlite:office_hours.db";
+    private static final String url = "jdbc:sqlite:db/office_hours.db";
     public static void createTable() {
         String sql = "CREATE TABLE IF NOT EXISTS office_hours (" +
                 "semester TEXT NOT NULL, " +

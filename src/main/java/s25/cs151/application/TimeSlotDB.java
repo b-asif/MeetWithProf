@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TimeSlotDB {
-    private static final String url = "jdbc:sqlite:time_slot.db";
+    private static final String url = "jdbc:sqlite:db/time_slot.db";
     public static void createTable() {
         String sql = "CREATE TABLE IF NOT EXISTS time_slot (" +
                 "startTime TEXT NOT NULL, " +
