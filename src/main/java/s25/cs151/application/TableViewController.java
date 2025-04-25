@@ -117,7 +117,7 @@ public class TableViewController  {
                 "WHEN 'Summer' THEN 3 " +
                 "WHEN 'Spring' THEN 4 " +
                 "END ASC;";
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:office_hours.db");
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:db/office_hours.db");
              Statement stmt = conn.createStatement();
              ResultSet result = stmt.executeQuery(query)) {
             while(result.next()) {
