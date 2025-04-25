@@ -1,12 +1,11 @@
-# Name of application: MeetYourProf
-# Version: 0.4
+# Name of application: MeetWithProf
+# Version: 0.7
 
 # who did what:
-1. Bushra Asif - created the database and edited the sorting logic for semester/year
-2. Huda Mohammed - helped in writing code for tableview 
-3. Jayden Manning - reviewed and overlooked code + handled edge case for when user enters invalid year entry
-3. Kenny Li - reviewed and overlooked code
+1. Bushra Asif - Designed UI for searchbar and delete button. Implemented the search funtionalitis
+2. Huda Mohammed - helped in writing code for delete functionality 
+3. Jayden Manning - reviewed and overlooked code + designed search bar
+3. Kenny Li - inserated the data for data entry sheet + overlooked code to make sure we met requirements. 
 
 
 # Any other instruction that users need to know: 
-This development step implemented the SQLite database that would store the semester office hour entries. Desinged the tableview in the schedule page for faculty to view. 
