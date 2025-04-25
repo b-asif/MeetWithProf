@@ -1,4 +1,4 @@
-module com.example.meetyourprof {
+module com.example.meetyourprofcopy {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
