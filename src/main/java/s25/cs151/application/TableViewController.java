@@ -176,7 +176,7 @@ private void loadTimeSlot() {
 
     private void loadDataEntries() {
         dataEntries.clear();
-        String query = "SELECT * FROM data_entry ORDER BY date ASC, time ASC";
+        String query = "SELECT * FROM data_entry ORDER BY date DESC, time DESC";
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:db/data_entry.db");
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(query)) {
