@@ -246,7 +246,7 @@ private void loadTimeSlot() {
     @FXML
     private void deleteDataEntry(DataEntry entry) {
         String query = "DELETE FROM data_entry WHERE studentName = ? AND date = ? AND time = ?";
-        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:data_entry.db");
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:db/data_entry.db");
             PreparedStatement stmt = connection.prepareStatement(query)) {
 
             stmt.setString(1, entry.getStudentName());
