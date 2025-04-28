@@ -1,4 +1,4 @@
-package s25.cs151.application;
+package s25.cs151.application.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

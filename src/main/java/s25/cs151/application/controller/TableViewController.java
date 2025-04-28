@@ -1,23 +1,22 @@
-package s25.cs151.application;
+package s25.cs151.application.controller;
 
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import s25.cs151.application.model.CourseInfo;
+import s25.cs151.application.model.DataEntry;
+import s25.cs151.application.model.SemesterInfo;
+import s25.cs151.application.model.TimeSlot;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class TableViewController  {
     private Stage stage;
@@ -244,6 +243,43 @@ private void loadTimeSlot() {
     }
 
     @FXML
+    private void handleEdit() {
+        DataEntry selectedEntry = dataEntryTableView.getSelectionModel().getSelectedItem();
+
+        if(selectedEntry == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No entry selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an office hour entry to edit");
+            alert.showAndWait();
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/EditEntry.fxml"));
+            Parent editdialogPane = loader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.getDialogPane().setContent(editdialogPane);
+            dialog.setTitle("Edit entry");
+
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+            EditEntryController entry = loader.getController();
+            entry.SetInitialEntry(selectedEntry);
+
+            var result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get() == ButtonType.OK) {
+                entry.editEntry();
+                dataEntryTableView.refresh();
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void deleteDataEntry(DataEntry entry) {
         String query = "DELETE FROM data_entry WHERE studentName = ? AND date = ? AND time = ?";
         try(Connection connection = DriverManager.getConnection("jdbc:sqlite:db/data_entry.db");
@@ -265,7 +301,7 @@ private void loadTimeSlot() {
     @FXML
     private void goToCourseSelection() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("courses.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/courses.fxml"));
             Parent root = loader.load();
             CoursesController control = loader.getController();
             control.setStage(stage);
@@ -291,7 +327,7 @@ private void loadTimeSlot() {
     @FXML
     private void goToOfficeHoursPage() throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("office_hour.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/office_hour.fxml"));
             Parent root = loader.load();
             OfficeHourController officeHourController = loader.getController();
             officeHourController.setStage(stage); // Pass the stage
@@ -305,7 +341,7 @@ private void loadTimeSlot() {
     @FXML
     private void goToDashboard() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
             Parent root = loader.load();
             HomeController control = loader.getController();
             control.setStage(stage);
@@ -319,7 +355,7 @@ private void loadTimeSlot() {
     @FXML
     private void goToTimeSlot() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TimeSlots.fxml"));
             Parent root = loader.load();
             TimeSlotsController control = loader.getController();
             control.setStage(stage);
@@ -332,7 +368,7 @@ private void loadTimeSlot() {
     @FXML
     private void goToDataEntry() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/DataEntry.fxml"));
             Parent root = loader.load();
             DataEntryController control = loader.getController();
             control.setStage(stage);

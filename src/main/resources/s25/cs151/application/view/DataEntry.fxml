@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.geometry.Insets?>
-<BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8f9294;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.DataEntryController">
+<BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8f9294;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.controller.DataEntryController">
     <!--Creating the sidebar panel -->
     <left>
         <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 3);" BorderPane.alignment="TOP_CENTER">
@@ -24,7 +24,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/home_png.png" />
+                                    <Image url="@../icons/home_png.png" />
                                 </image>
                             </ImageView>
                         </graphic>
@@ -34,7 +34,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/event_available.png" />
+                                    <Image url="@../icons/event_available.png" />
                                 </image>
                             </ImageView>
                         </graphic>
@@ -44,7 +44,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/checklist.png" />
+                                    <Image url="@../icons/checklist.png" />
                                 </image>
                             </ImageView>
                         </graphic>
@@ -54,7 +54,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/schedule_send.png" />
+                                    <Image url="@../icons/schedule_send.png" />
                                 </image>
                             </ImageView>
                         </graphic>
@@ -74,7 +74,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/clock.png" />
+                                    <Image url="@../icons/clock.png" />
                                 </image>
                             </ImageView>
                         </graphic>
@@ -83,7 +83,7 @@
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
-                                    <Image url="@icons/work_history.png" />
+                                    <Image url="@../icons/work_history.png" />
                                 </image>
                             </ImageView>
                         </graphic>

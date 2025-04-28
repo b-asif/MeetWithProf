@@ -1,4 +1,4 @@
-package s25.cs151.application;
+package s25.cs151.application.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,11 +8,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import s25.cs151.application.model.DataEntryDB;
 
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +90,7 @@ public class DataEntryController {
     }
     private List<String> getTimeSlots() {
         List<String> timeSlots = new ArrayList<>();
-        String url = "jdbc:sqlite:time_slot.db";
+        String url = "jdbc:sqlite:db/time_slot.db";
         String query = "SELECT startTime, endTime from time_slot";
 
         try (Connection connection = DriverManager.getConnection(url);
@@ -117,7 +116,7 @@ public class DataEntryController {
 
     private List<String> getCourseList() {
         List<String> courseSelection = new ArrayList<>();
-        String url = "jdbc:sqlite:course_info.db";
+        String url = "jdbc:sqlite:db/course_info.db";
         String query = "SELECT courseCode from course_info";
 
         try(Connection connection = DriverManager.getConnection(url);
@@ -138,7 +137,7 @@ public class DataEntryController {
     @FXML
     private void goToDashboard() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
             Parent root = loader.load();
             HomeController control = loader.getController();
             control.setStage(stage);
@@ -151,7 +150,7 @@ public class DataEntryController {
     @FXML
     private void goToOfficeHoursPage() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("office_hour.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/office_hour.fxml"));
             Parent root = loader.load();
             OfficeHourController control = loader.getController();
             control.setStage(stage);
@@ -164,7 +163,7 @@ public class DataEntryController {
     @FXML
     private void goToDataEntry() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/DataEntry.fxml"));
             Parent root = loader.load();
             DataEntryController control = loader.getController();
             control.setStage(stage);
@@ -177,7 +176,7 @@ public class DataEntryController {
     @FXML
     private void goToCourseSelection() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("courses.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/courses.fxml"));
             Parent root = loader.load();
             CoursesController control = loader.getController();
             control.setStage(stage);
@@ -190,7 +189,7 @@ public class DataEntryController {
     @FXML
     private void goToTimeSlot() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TimeSlots.fxml"));
             Parent root = loader.load();
             TimeSlotsController control = loader.getController();
             control.setStage(stage);
@@ -203,7 +202,7 @@ public class DataEntryController {
     @FXML
     private void goToTableView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tableView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TableView.fxml"));
             Parent root = loader.load();
             TableViewController control = loader.getController();
             control.setStage(stage);

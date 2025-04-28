@@ -6,6 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import s25.cs151.application.controller.HomeController;
+import s25.cs151.application.model.CourseInfoDB;
+import s25.cs151.application.model.DataEntryDB;
+import s25.cs151.application.model.OfficeHourDataBase;
+import s25.cs151.application.model.TimeSlotDB;
 
 
 import java.io.IOException;
@@ -18,7 +23,7 @@ public class Main extends Application {
         TimeSlotDB.createTable();
         DataEntryDB.createTable();
 
-        FXMLLoader load = new FXMLLoader(getClass().getResource("/s25/cs151/application/HomePage.fxml"));
+        FXMLLoader load = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
         Scene home = new Scene(load.load(), 1920,1080);
 
         HomeController control = load.getController();

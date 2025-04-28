@@ -1,12 +1,11 @@
-package s25.cs151.application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+package s25.cs151.application.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import s25.cs151.application.model.OfficeHourDataBase;
 
 import java.io.IOException;
 
@@ -71,7 +70,7 @@ public class OfficeHourController {
     @FXML
     private void goToDashboard() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
             Parent root = loader.load();
             HomeController control = loader.getController();
             control.setStage(stage);
@@ -84,7 +83,7 @@ public class OfficeHourController {
     @FXML
     private void goToTableView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tableView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TableView.fxml"));
             Parent root = loader.load();
             TableViewController control = loader.getController();
             control.setStage(stage);
@@ -97,7 +96,7 @@ public class OfficeHourController {
     @FXML
     private void goToOfficeHoursPage() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("office_hour.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/office_hour.fxml"));
             Parent root = loader.load();
             OfficeHourController control = loader.getController();
             control.setStage(stage);
@@ -110,7 +109,7 @@ public class OfficeHourController {
     @FXML
     private void goToDataEntry() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DataEntry.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/DataEntry.fxml"));
             Parent root = loader.load();
             DataEntryController control = loader.getController();
             control.setStage(stage);
@@ -123,7 +122,7 @@ public class OfficeHourController {
     @FXML
     private void goToCourseSelection() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("courses.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/courses.fxml"));
             Parent root = loader.load();
             CoursesController control = loader.getController();
             control.setStage(stage);
@@ -136,7 +135,7 @@ public class OfficeHourController {
     @FXML
     private void goToTimeSlot() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimeSlots.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TimeSlots.fxml"));
             Parent root = loader.load();
             TimeSlotsController control = loader.getController();
             control.setStage(stage);

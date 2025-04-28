@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.TableViewController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.controller.TableViewController">
    <left>
       <VBox alignment="TOP_CENTER" maxWidth="700" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #1c2b42; -fx-padding: 70 5 5 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 3);" BorderPane.alignment="TOP_CENTER">
          <padding>
@@ -30,7 +30,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/home_png.png" />
+                              <Image url="@../icons/home_png.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -39,7 +39,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/event_available.png" />
+                              <Image url="@../icons/event_available.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -48,7 +48,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/checklist.png" />
+                              <Image url="@../icons/checklist.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -57,7 +57,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/schedule_send.png" />
+                              <Image url="@../icons/schedule_send.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -66,7 +66,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/clock.png" />
+                              <Image url="@../icons/clock.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -75,7 +75,7 @@
                      <graphic>
                         <ImageView fitHeight="20" fitWidth="20">
                            <image>
-                              <Image url="@icons/work_history.png" />
+                              <Image url="@../icons/work_history.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -89,7 +89,7 @@
       </VBox>
    </left>
    <center>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="1292.0" style="-fx-background-radius: 15;" stylesheets="@styles.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="1292.0" style="-fx-background-radius: 15;" stylesheets="@../styles.css" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Data Entry">
                <content>
@@ -103,7 +103,7 @@
                               <HBox alignment="CENTER_LEFT" spacing="20">
                                  <children>
                                     <Button style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4); -fx-cursor: hand; -fx-background-color: #0a2e63; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16;" text="Add" />
-                                    <Button prefWidth="74.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4); -fx-cursor: hand; -fx-background-color: #0a2e63; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16;" text="Modify" />
+                                    <Button onAction="#handleEdit" prefWidth="74.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4); -fx-cursor: hand; -fx-background-color: #0a2e63; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16;" text="Edit" />
                                     <Button onAction="#handleDelete" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4); -fx-cursor: hand; -fx-background-color: #0a2e63; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16;" text="Delete" />
                                  </children>
                               </HBox>
