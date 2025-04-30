@@ -9,7 +9,7 @@ import s25.cs151.application.model.OfficeHourDataBase;
 
 import java.io.IOException;
 
-public class OfficeHourController {
+public class OfficeHourController implements setStage {
     @FXML private ComboBox<String> semesterDropDown;
     @FXML private GridPane formContainer;
     @FXML private TextField year;
@@ -26,6 +26,8 @@ public class OfficeHourController {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+    private final NavigationHandler navigatePage = new NavigationHandler();
+
     @FXML
     private void submitOfficeHourSchedule() {
 
@@ -67,85 +69,31 @@ public class OfficeHourController {
             System.out.println("You need to fill the form.");
         }
     }
+    //everytime we change pages, we have the same code repeated throughout
     @FXML
     private void goToDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
-            Parent root = loader.load();
-            HomeController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/HomePage.fxml", stage);
     }
     @FXML
     private void goToTableView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TableView.fxml"));
-            Parent root = loader.load();
-            TableViewController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/TableView.fxml", stage);
     }
     @FXML
     private void goToOfficeHoursPage() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/office_hour.fxml"));
-            Parent root = loader.load();
-            OfficeHourController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/office_hour.fxml", stage);
     }
     @FXML
     private void goToDataEntry() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/DataEntry.fxml"));
-            Parent root = loader.load();
-            DataEntryController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/DataEntry.fxml", stage);
     }
     @FXML
     private void goToCourseSelection() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/courses.fxml"));
-            Parent root = loader.load();
-            CoursesController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/courses.fxml", stage);
     }
     @FXML
     private void goToTimeSlot() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TimeSlots.fxml"));
-            Parent root = loader.load();
-            TimeSlotsController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/TimeSlots.fxml", stage);
     }
-
 
     @FXML
     public void initialize() {

@@ -18,11 +18,14 @@ import s25.cs151.application.model.TimeSlot;
 import java.io.IOException;
 import java.sql.*;
 
-public class TableViewController  {
+public class TableViewController implements setStage {
     private Stage stage;
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+    private final NavigationHandler navigatePage = new NavigationHandler();
+
     @FXML private TableView<SemesterInfo> semesterInfoTableView;
     @FXML private TableView<CourseInfo> courseInfoTableView;
     @FXML private TableView<TimeSlot> timeSlotTableView;
@@ -295,88 +298,29 @@ private void loadTimeSlot() {
         }
     }
 
-
-
-
     @FXML
-    private void goToCourseSelection() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/courses.fxml"));
-            Parent root = loader.load();
-            CoursesController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void goToDashboard() {
+        navigatePage.navigate("/s25/cs151/application/view/HomePage.fxml", stage);
     }
     @FXML
     private void goToTableView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tableView.fxml"));
-            Parent root = loader.load();
-            TableViewController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/TableView.fxml", stage);
     }
     @FXML
-    private void goToOfficeHoursPage() throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/office_hour.fxml"));
-            Parent root = loader.load();
-            OfficeHourController officeHourController = loader.getController();
-            officeHourController.setStage(stage); // Pass the stage
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();  // Debug loading errors
-        }
-
-    }
-    @FXML
-    private void goToDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
-            Parent root = loader.load();
-            HomeController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void goToTimeSlot() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/TimeSlots.fxml"));
-            Parent root = loader.load();
-            TimeSlotsController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void goToOfficeHoursPage() {
+        navigatePage.navigate("/s25/cs151/application/view/office_hour.fxml", stage);
     }
     @FXML
     private void goToDataEntry() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/DataEntry.fxml"));
-            Parent root = loader.load();
-            DataEntryController control = loader.getController();
-            control.setStage(stage);
-            stage.getScene().setRoot(root);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        navigatePage.navigate("/s25/cs151/application/view/DataEntry.fxml", stage);
+    }
+    @FXML
+    private void goToCourseSelection() {
+        navigatePage.navigate("/s25/cs151/application/view/courses.fxml", stage);
+    }
+    @FXML
+    private void goToTimeSlot() {
+        navigatePage.navigate("/s25/cs151/application/view/TimeSlots.fxml", stage);
     }
 
 }
