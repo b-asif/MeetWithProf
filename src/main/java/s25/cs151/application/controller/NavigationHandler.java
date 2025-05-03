@@ -12,7 +12,10 @@ public class NavigationHandler {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
             Object controller = loader.getController();
+            //we are going to check if the controller is going to implement the setStage interface
             if(controller instanceof setStage) {
+                //if the controller implements the setStage interface we first cast the controller object to setStage
+                // call the setStage method
                 ((setStage) controller).setStage(stage);
             }
             stage.getScene().setRoot(root);

@@ -12,6 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import s25.cs151.application.model.CourseInfo;
 import s25.cs151.application.model.DataEntry;
+import s25.cs151.application.model.DataEntryDB;
+
 import s25.cs151.application.model.SemesterInfo;
 import s25.cs151.application.model.TimeSlot;
 
@@ -54,6 +56,8 @@ public class TableViewController implements setStage {
     @FXML TableColumn<DataEntry, String> date;
     @FXML TableColumn<DataEntry, String> reason;
     @FXML TableColumn<DataEntry, String> comments;
+    @FXML private TableColumn<DataEntry, Integer> id;
+
     //search bar
     @FXML TextField searchField;
     @FXML Button searchButton;
@@ -100,6 +104,8 @@ public class TableViewController implements setStage {
         date.setCellValueFactory((new PropertyValueFactory<>("date")));
         reason.setCellValueFactory((new PropertyValueFactory<>("reason")));
         comments.setCellValueFactory((new PropertyValueFactory<>("comments")));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
 
         dataEntryTableView.setItems(dataEntries);
 
@@ -189,7 +195,8 @@ private void loadTimeSlot() {
                         result.getString("course"),
                         result.getString("date"),
                         result.getString("reason"),
-                        result.getString("comments")
+                        result.getString("comments"),
+                        result.getInt("id")
                 ));
             }
             dataEntryTableView.refresh();
@@ -273,7 +280,13 @@ private void loadTimeSlot() {
             var result = dialog.showAndWait();
 
             if(result.isPresent() && result.get() == ButtonType.OK) {
+                Alert edit = new Alert(Alert.AlertType.INFORMATION);
+                edit.setTitle("Entry Updated");
+                edit.setHeaderText(null);
+                edit.setContentText("The entry for " + selectedEntry.getStudentName() + " has been updated");
+                edit.showAndWait();
                 entry.editEntry();
+                DataEntryDB.updateData(entry.getUpdatedData());
                 dataEntryTableView.refresh();
             }
         }

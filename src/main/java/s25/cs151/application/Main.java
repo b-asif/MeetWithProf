@@ -23,6 +23,8 @@ public class Main extends Application {
         TimeSlotDB.createTable();
         DataEntryDB.createTable();
 
+
+
         FXMLLoader load = new FXMLLoader(getClass().getResource("/s25/cs151/application/view/HomePage.fxml"));
         Scene home = new Scene(load.load(), 1920,1080);
 

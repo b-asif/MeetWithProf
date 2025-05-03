@@ -7,14 +7,16 @@ public class DataEntry {
     private String date;
     private String reason;
     private String comments;
+    private int id;
 
-    public DataEntry(String name, String time, String course, String date, String reason, String comments) {
+    public DataEntry(String name, String time, String course, String date, String reason, String comments, int id) {
         this.studentName = name;
         this.time = time;
         this.course = course;
         this.date = date;
         this.reason = reason;
         this.comments = comments;
+        this.id = id;
     }
 
     public String getStudentName() {return studentName;}
@@ -61,5 +63,13 @@ public class DataEntry {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

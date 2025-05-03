@@ -23,6 +23,10 @@ public class EditEntryController {
     @FXML private  TextArea comment;
 
     private DataEntry entry;
+    @FXML
+    public DataEntry getUpdatedData() {
+        return entry;
+    }
 
     @FXML
     private void initialize() {

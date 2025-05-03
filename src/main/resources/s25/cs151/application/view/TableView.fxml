@@ -122,6 +122,7 @@
                               <TableColumn fx:id="date" prefWidth="160.0" style="-fx-alignment: CENTER-LEFT;" text="Date" />
                               <TableColumn fx:id="reason" prefWidth="260.0" style="-fx-alignment: CENTER-LEFT;" text="Reason" />
                               <TableColumn fx:id="comments" prefWidth="260.0" style="-fx-alignment: CENTER-LEFT;" text="Comments" />
+                              <TableColumn fx:id="id" prefWidth="260.0" style="-fx-alignment: CENTER-LEFT;" text="ID" />
                            </columns>
                         </TableView>
                      </children>
